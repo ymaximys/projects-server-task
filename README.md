@@ -16,7 +16,7 @@ The API you should support:
   - Users can be added to multiple projects.
 
 ### Admin service 
-A micro-service responsible for all the business logic of the application if there are any.
+A micro-service responsible for all the business logic of the application.
 <br/>Responsible for saveing entities on DB of your choice.
 
 ### Bonus 
