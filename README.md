@@ -1,18 +1,27 @@
 # media-server-task
 
-Develop a sample of a micro-services server architecture.
-The server should contain two services:
-1. API service - Implement CRUD api for uploading and returning of media files. 
-2. Media service - responsible for the actual handling and BL for media.
+Develop a sample of a micro-services server architecture that allows to create projects that contains multi-users. 
+<br/>The server should contain two services:
+1. API service - Implement CRUD api for prjects and users. 
+2. Admin service - Reponsible for projects and users business logic.
 
-For the Media handling please  you can use Cloudinary service and SDK 
-https://cloudinary.com/documentation/java_integration 
-If you prefer any other media/host provider like S3, you can choose whatever service you prefer and familiar with.
+### API Service
+An external API server that recieves the requests from the client.
+The API you should support:
+1. Projects CRUD: 
+  - Project should contain - project name
+2. Adding new users to existing projects:
+  - Users can be added to multiple projects.
+  - Users should contain - full name, login name, password.
+3. Get all projects of the users.
+
+### Admin service 
+A micro-service responsible for all the business logic of the application if there are any.
+<br/>Responsible for saveing entities on DB of your choice.
 
 ### Bonus 
-1. Use Docker for servers.
-2. Reactive programming 
-
+1. Simple UI in Angualr for creation of new projects and adding of users to it.
+2. Use Docker for servers.
 
 ### Last thing
 ##### What we anticipate to see in the  app:
