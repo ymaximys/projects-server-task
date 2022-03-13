@@ -1,4 +1,4 @@
-# media-server-task
+# projects-server-task
 
 Develop a sample of a micro-services server architecture that allows to create projects that contains multi-users. 
 <br/>The server should contain two services:
