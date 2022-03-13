@@ -10,7 +10,7 @@ An external API server that recieves the requests from the client.
 The API you should support:
 1. Projects CRUD API: 
   - Project should contain - project name, status (0/1)
-2. Adding new users to existing projects:
+2. Adding/Removing new users to existing projects:
   - Users can be added to multiple projects.
   - Users should contain - full name, login name, password.
 3. Get all projects of the users.
