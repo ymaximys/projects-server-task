@@ -17,16 +17,16 @@ The API you should support:
 
 ### Admin service 
 A micro-service responsible for all the business logic of the application.
-<br/>Responsible for saveing entities on DB of your choice.
+<br/>Responsible for saving entities on DB of your choice.
 
 ### Bonus 
-1. Simple UI in Angualr for creation of new projects and adding of users to it.
+1. Simple UI in Angular for creation of new projects and adding of users to it.
 2. Use Docker for servers.
 
 ### Last thing
 ##### What we anticipate to see in the  app:
 
-1. Write the app with Java and Spring
+1. Write the app with Java and Spring boot (reactive stack: webflux/r2dbc/mongo/etc)
 2. Write unit tests
 3. Use design patterns that allows flexible code structure, showing anticipation for evolution and new features 
 4. Cut corners, but not to the point where the structure vanishes
