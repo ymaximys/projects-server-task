@@ -20,8 +20,10 @@ A micro-service responsible for all the business logic of the application.
 <br/>Responsible for saving entities on DB of your choice.
 
 ### Bonus 
-1. Simple UI in Angular for creation of new projects and adding of users to it.
-2. Use Docker for servers.
+Use Dockers for servers.
+
+### Bonus for full stack developers
+Simple UI in Angular for creation of new projects and adding of users to it.
 
 ### Last thing
 ##### What we anticipate to see in the  app:
