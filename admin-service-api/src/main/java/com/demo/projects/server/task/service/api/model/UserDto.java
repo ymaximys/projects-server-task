@@ -1,5 +1,7 @@
 package com.demo.projects.server.task.service.api.model;
 
+import java.util.Objects;
+
 public class UserDto {
 
     private Long id;
@@ -42,4 +44,19 @@ public class UserDto {
         this.password = password;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        UserDto userDto = (UserDto) o;
+        return Objects.equals(id, userDto.id) &&
+                Objects.equals(name, userDto.name) &&
+                Objects.equals(login, userDto.login) &&
+                Objects.equals(password, userDto.password);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, name, login, password);
+    }
 }
