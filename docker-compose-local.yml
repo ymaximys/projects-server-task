@@ -1,0 +1,11 @@
+version: "3.9"
+
+services:
+  postgres-db:
+    image: postgres:14.2
+    environment:
+      - POSTGRES_DB=projects-server-task
+      - POSTGRES_USER=someUser
+      - POSTGRES_PASSWORD=somePassword
+    ports:
+      - "5432:5432"
