@@ -1,3 +1,24 @@
+#Project server task
+Demo project to test dev skills
+
+## Set up local env
+Run a local docker compose file which contains postgresql 14.1, with a proper user/password and db:   
+```docker-compose -f docker-compose-local.yml -p local up```
+
+Postgresql user/password and db:
+
+      - POSTGRES_DB=projects-server-task
+      - POSTGRES_USER=someUser
+      - POSTGRES_PASSWORD=somePassword
+
+##Swagger
+To access swagger openIp (3.0) for:
+#### admin service: http://localhost:8082/webjars/swagger-ui/index.html
+#### public api service: http://localhost:8081/webjars/swagger-ui/index.html
+
+
+
+
 # projects-server-task
 
 Develop a sample of a micro-services server architecture that allows to create projects that contains multi-users. 
