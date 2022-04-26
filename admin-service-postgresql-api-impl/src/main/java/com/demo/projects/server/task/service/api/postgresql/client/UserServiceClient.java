@@ -3,20 +3,17 @@ package com.demo.projects.server.task.service.api.postgresql.client;
 import com.demo.projects.server.task.service.api.model.UserDto;
 import com.demo.projects.server.task.service.api.service.UserService;
 import org.springframework.stereotype.Component;
-import org.springframework.web.reactive.function.client.ClientResponse;
 import org.springframework.web.reactive.function.client.WebClient;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 @Component
-public class UserServiceClient implements UserService {
-
-    private static final String DEFAULT_BASE_URL = "http://localhost:8082/postgresql"; //TODO: provide through property file
+public class UserServiceClient extends Client implements UserService {
 
     private final WebClient webClient;
 
     public UserServiceClient() {
-        this.webClient = WebClient.create(DEFAULT_BASE_URL);
+        this.webClient = buildDefault();
     }
 
 

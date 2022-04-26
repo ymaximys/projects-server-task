@@ -1,16 +1,9 @@
 package com.demo.projects.server.task.service.api.postgresql.exception;
 
-public class EntityNotFoundException extends RuntimeException {
+import com.demo.projects.server.task.service.api.exception.ValidationException;
 
-    private final String message;
-
+public class EntityNotFoundException extends ValidationException {
     public EntityNotFoundException(String message) {
-        this.message = message;
+        super(message);
     }
-
-    @Override
-    public String getMessage() {
-        return message;
-    }
-
 }

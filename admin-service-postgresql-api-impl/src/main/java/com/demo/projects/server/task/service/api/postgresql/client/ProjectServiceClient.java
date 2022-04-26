@@ -8,14 +8,12 @@ import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 @Component
-public class ProjectServiceClient implements ProjectService {
-
-    private static final String DEFAULT_BASE_URL = "http://localhost:8082/postgresql"; //DOTO: provide through property file
+public class ProjectServiceClient extends Client implements ProjectService {
 
     private final WebClient webClient;
 
     public ProjectServiceClient() {
-        this.webClient = WebClient.create(DEFAULT_BASE_URL);
+        this.webClient = buildDefault();
     }
 
     @Override
@@ -47,7 +45,8 @@ public class ProjectServiceClient implements ProjectService {
     @Override
     public Mono<Void> delete(Long id) {
         return webClient.delete().uri("/project/" + id)
-                .exchangeToMono(response -> response.bodyToMono(Void.class));
+                .retrieve()
+                .bodyToMono(Void.class);
     }
 
     @Override
@@ -61,4 +60,5 @@ public class ProjectServiceClient implements ProjectService {
         return webClient.delete().uri("/project/" + projectId + "/account/" + usertId)
                 .exchangeToMono(response -> response.bodyToMono(Void.class));
     }
+
 }
