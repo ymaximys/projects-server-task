@@ -30,7 +30,8 @@ To run microservices using docker:
 
 ##Note! 
 admin-service-postgresql image will fail because it uses localhost to connect to postgresql db, which obviously not in a container. 
-Please set db host as your machine ip in property file (application.yml), re-build project and try again. And do not forget do the same for flyway. 
+Please set db and flyway hosts as your machine ip in property file (application.yml), re-build project and try again.
+Please do the same for public-api service, modify admin.service.base.url property with your machine ip. 
 
 
 # projects-server-task task description

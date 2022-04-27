@@ -2,6 +2,7 @@ package com.demo.projects.server.task.service.api.postgresql.client;
 
 import com.demo.projects.server.task.service.api.model.UserDto;
 import com.demo.projects.server.task.service.api.service.UserService;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import org.springframework.web.reactive.function.client.WebClient;
 import reactor.core.publisher.Flux;
@@ -12,8 +13,8 @@ public class UserServiceClient extends Client implements UserService {
 
     private final WebClient webClient;
 
-    public UserServiceClient() {
-        this.webClient = buildDefault();
+    public UserServiceClient(@Value("${admin.service.base.url}") String adminServiceBaseUrl) {
+        this.webClient = build(adminServiceBaseUrl);
     }
 
 

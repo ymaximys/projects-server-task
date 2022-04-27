@@ -7,11 +7,9 @@ import reactor.core.publisher.Mono;
 
 public abstract class Client {
 
-    private static final String DEFAULT_BASE_URL = "http://localhost:8082/postgresql"; //TODO: provide through property file
-
-    protected WebClient buildDefault() {
+    protected WebClient build(String baseUrl) {
         return WebClient.builder()
-                .baseUrl(DEFAULT_BASE_URL).filter(errorHandler()).build();
+                .baseUrl(baseUrl).filter(errorHandler()).build();
     }
 
     protected static ExchangeFilterFunction errorHandler() {
