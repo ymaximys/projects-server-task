@@ -5,25 +5,39 @@ Demo project to test dev skills
 Run a local docker compose file which contains postgresql 14.1, with a proper user/password and db:   
 ```docker-compose -f docker-compose-local.yml -p local up```
 
-Postgresql user/password and db:
+Postgresql user/password and db (default public schema is used):
 
       - POSTGRES_DB=projects-server-task
       - POSTGRES_USER=someUser
       - POSTGRES_PASSWORD=somePassword
+      
+## Run application from your IDE
+- to run API service please open "open-api" module and launch ```PublicApiApplication``` class  
+- to run Admin service please open "admin-service-postgresql" module and launch ```ServicePostgresqlApplication``` class 
 
 ##Swagger
-To access swagger openIp (3.0) for:
+To access swagger (and openApi 3.0) for:
 #### admin service: http://localhost:8082/webjars/swagger-ui/index.html
 #### public api service: http://localhost:8081/webjars/swagger-ui/index.html
 
+##DOCKER
+To build docker images for microservices please run maven command: ```mvn clean build```, which will build project, 
+create docker images and put it on local docker image repository (``` docker images```).
+
+To run microservices using docker:
+ -  #### admin service: ```docker run -p 8082:8082 -t admin-service-postgresql:0.0.1-SNAPSHOT```
+ -  #### public api service: ```docker run -p 8081:8081 -t public-api:0.0.1-SNAPSHOT```
+
+##Note! 
+admin-service-postgresql image will fail because it uses localhost to connect to postgresql db, which obviously not in a container. 
+Please set db host as your machine ip in property file (application.yml), re-build project and try again. And do not forget do the same for flyway. 
 
 
-
-# projects-server-task
+# projects-server-task task description
 
 Develop a sample of a micro-services server architecture that allows to create projects that contains multi-users. 
 <br/>The server should contain two services:
-1. API service - Implement CRUD api for prjects and users. 
+1. API service - Implement CRUD api for projects and users. 
 2. Admin service - Reponsible for projects and users business logic.
 
 ### API Service
