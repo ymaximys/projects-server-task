@@ -36,6 +36,7 @@ public class AccountController {
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping(path = "/account")
     public Mono<UserDto> create(@RequestBody UserDto user) {
+        user.setId(null);
         return accountPostgresqlService.save(accountMapper.convert(user))
                 .map(accountMapper::convert);
     }

@@ -36,6 +36,7 @@ public class ProjectController {
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping(path = "/project")
     public Mono<ProjectDto> create(@RequestBody ProjectDto project) {
+        project.setId(null);
         return projectPostgresqlService.save(projectMapper.convert(project))
                 .map(projectMapper::convert);
     }
