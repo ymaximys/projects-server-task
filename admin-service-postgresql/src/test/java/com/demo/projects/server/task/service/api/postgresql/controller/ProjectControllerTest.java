@@ -27,6 +27,7 @@ import reactor.core.publisher.Mono;
 
 import java.util.Arrays;
 
+import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.times;
 
 @ExtendWith(SpringExtension.class)
@@ -91,7 +92,8 @@ public class ProjectControllerTest {
 
     @Test
     public void testCreate() {
-        Mockito.when(projectRepository.save(project)).thenReturn(Mono.just(project));
+        project.setId(null);
+        Mockito.when(projectRepository.save(eq(project))).thenReturn(Mono.just(project));
 
         ProjectDto body = new ProjectDto();
         body.setId(project.getId());
@@ -105,6 +107,7 @@ public class ProjectControllerTest {
                 .exchange()
                 .expectStatus().isCreated();
 
+        project.setId(null);
         Mockito.verify(projectRepository, times(1)).save(project);
     }
 
